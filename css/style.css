@@ -132,6 +132,12 @@ body {
 	color: #000;
 	letter-spacing: 1px;
 }
+
+@media (min-width: 768) {
+   .menu__link:hover {
+      text-decoration: underline;
+   }
+}
 .menu__link:hover {
 	text-decoration: underline;
 }
@@ -230,11 +236,9 @@ body {
    }
    .menu__link {
       font-size: 24px;
-      display: block;
-      text-decoration: none;
-     
    }
    .menu__link {
+      padding: 15px 0;
       display: block;
       color: #000;
       text-transform: uppercase;
@@ -257,7 +261,7 @@ body {
    }
    .hover__text {
       color: #fff;
-      padding: 20px 30px;
+      padding: 15px 0;
       display: block;
       will-change: transform;
    }

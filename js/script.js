@@ -153,8 +153,13 @@ da.init();
 
 // Отримуємо масив елементів
 const menuLinksWrappers = document.querySelectorAll('[data-line-effect]');
+//отримуємо ширину екрану
+const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 // Якщо є елементи, запускаємо функцію
-menuLinksWrappers.length ? menuEffect() : null;
+if (viewport_width < 768) {
+   menuLinksWrappers.length ? menuEffect() : null;
+}
+
 
 // Основна функція
 function menuEffect() {
