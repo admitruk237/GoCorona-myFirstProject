@@ -239,14 +239,14 @@ body {
       display: block;
       transition: all 0.3s;
    }
-   .menu__link :active {
+   .menu__link :hovergit remote remove origin {
       color: #fff;
    }
    .menu__item{
       display: block;
       transition: all 0.3s;
    }
-   .menu__item :active {
+   .menu__item :hover {
 background-color: #000;
    }
    
