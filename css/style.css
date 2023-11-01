@@ -112,6 +112,9 @@ body {
 	justify-content: flex-end;
 	align-items: center;
 }
+._dynamic_adapt_{
+   margin-left: 20px;
+}
 /* --------------------------- */
 .menu {
 	display: flex;
@@ -235,12 +238,10 @@ body {
       font-size: 24px;
    }
    .menu__link {
-      padding: 15px 0;
+      padding: 15px 20px;
       display: block;
-      transition: all 0.3s;
-   }
-   .menu__link :hovergit remote remove origin {
-      color: #fff;
+      border-radius: 10px;
+      margin: 0 auto;
    }
    .menu__item{
       display: block;
@@ -248,6 +249,7 @@ body {
    }
    .menu__item :hover {
 background-color: #000;
+color: #fff;
    }
    
    .menu__list {
@@ -287,61 +289,6 @@ background-color: #000;
 }
 .button_blue:hover {
 	background-color: #70a3f7;
-}
-/* --------------------------- */
-.close-icon-menu,
-.icon-menu {
-	display: none;
-}
-@media (max-width: 767.98px) {
-	.icon-menu {
-		display: flex;
-		position: relative;
-		flex: 0 0 30px;
-		height: 18px;
-		flex-direction: column;
-		justify-content: space-between;
-		margin: 0px 0px 0px 20px;
-	}
-	.icon-menu::before,
-	.icon-menu::after {
-		content: "";
-		background-color: #000;
-		height: 2px;
-	}
-	.icon-menu span {
-		height: 2px;
-		background-color: #000;
-	}
-
-	.close-icon-menu {
-		flex: 0 0 30px;
-		height: 30px;
-		position: relative;
-		margin: 0px 0px 0px 20px;
-	}
-	.close-icon-menu::before,
-	.close-icon-menu::after {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: 0;
-		width: 100%;
-		background-color: #000;
-		height: 2px;
-	}
-	.close-icon-menu::before {
-		transform: rotate(45deg);
-	}
-	.close-icon-menu::after {
-		transform: rotate(-45deg);
-	}
-	.header:target .icon-menu {
-		display: none;
-	}
-	.header:target .close-icon-menu {
-		display: flex;
-	}
 }
 
 /* ============================================================================= */

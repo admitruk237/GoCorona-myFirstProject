@@ -24,13 +24,13 @@ class DynamicAdapt {
       this.type = type
    }
    init() {
-      // масив об'єктів
+      // array of objects
       this.оbjects = []
       this.daClassname = '_dynamic_adapt_'
-      // масив DOM-елементів
+      // an array of DOM elements
       this.nodes = [...document.querySelectorAll('[data-da]')]
 
-      // наповнення оbjects об'єктами
+      // filling objects with objects
       this.nodes.forEach((node) => {
          const data = node.dataset.da.trim()
          const dataArray = data.split(',')
@@ -46,19 +46,19 @@ class DynamicAdapt {
 
       this.arraySort(this.оbjects)
 
-      // масив унікальних медіа-запитів
+      // an array of unique media queries
       this.mediaQueries = this.оbjects
          .map(({ breakpoint }) => `(${this.type}-width: ${breakpoint}px),${breakpoint}`)
          .filter((item, index, self) => self.indexOf(item) === index)
 
-      // навішування слухача на медіа-запит
-      // та виклик оброблювача при першому запуску
+      // hanging a listener on a media request
+      // and calling the handler on first startup
       this.mediaQueries.forEach((media) => {
          const mediaSplit = media.split(',')
          const matchMedia = window.matchMedia(mediaSplit[0])
          const mediaBreakpoint = mediaSplit[1]
 
-         // масив об'єктів з відповідним брейкпоінтом
+         // an array of objects with the corresponding breakpoint
          const оbjectsFilter = this.оbjects.filter(({ breakpoint }) => breakpoint === mediaBreakpoint)
          matchMedia.addEventListener('change', () => {
             this.mediaHandler(matchMedia, оbjectsFilter)
@@ -66,7 +66,7 @@ class DynamicAdapt {
          this.mediaHandler(matchMedia, оbjectsFilter)
       })
    }
-   // Основна функція
+   // Main function
    mediaHandler(matchMedia, оbjects) {
       if (matchMedia.matches) {
          оbjects.forEach((оbject) => {
@@ -81,7 +81,7 @@ class DynamicAdapt {
          })
       }
    }
-   // Функція переміщення
+   // Move function
    moveTo(place, element, destination) {
       element.classList.add(this.daClassname)
       if (place === 'last' || place >= destination.children.length) {
@@ -94,7 +94,7 @@ class DynamicAdapt {
       }
       destination.children[place].before(element)
    }
-   // Функція повернення
+   // Return function
    moveBack(parent, element, index) {
       element.classList.remove(this.daClassname)
       if (parent.children[index] !== undefined) {
@@ -103,13 +103,13 @@ class DynamicAdapt {
          parent.append(element)
       }
    }
-   // Функція отримання індексу всередині батьківського єлементу
+   // Function to get the index inside the parent element
    indexInParent(parent, element) {
       return [...parent.children].indexOf(element)
    }
-   // Функція сортування масиву по breakpoint та place
-   // за зростанням для this.type = min
-   // за спаданням для this.type = max
+   // Array sorting function by breakpoint and place
+   // by growth for this.type = min
+   // descending for this.type = max
    arraySort(arr) {
       if (this.type === 'min') {
          arr.sort((a, b) => {
@@ -149,3 +149,23 @@ class DynamicAdapt {
 }
 const da = new DynamicAdapt("max");
 da.init();
+
+
+//Transition to trigger the burger menu link for mobile 
+// define the width of the screen
+const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if (viewport_width < 767) {
+   document.addEventListener("DOMContentLoaded", function () {
+      var links = document.querySelectorAll('[data-line-effect] .menu__link');
+
+      links.forEach(function (link) {
+         link.addEventListener('click', function (event) {
+            event.preventDefault(); // Stop the link (by default)
+
+            setTimeout(function () {
+               window.location.href = link.getAttribute('href');
+            }, 300); // 300 milliseconds
+         });
+      });
+   });
+}
