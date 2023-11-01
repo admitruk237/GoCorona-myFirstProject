@@ -133,13 +133,10 @@ body {
 	letter-spacing: 1px;
 }
 
-@media (min-width: 768) {
+@media (min-width: 768px) {
    .menu__link:hover {
       text-decoration: underline;
    }
-}
-.menu__link:hover {
-	text-decoration: underline;
 }
 
 @media (max-width: 991.98px) {
@@ -240,32 +237,19 @@ body {
    .menu__link {
       padding: 15px 0;
       display: block;
-      color: #000;
-      text-transform: uppercase;
-      overflow: hidden;
-      position: relative;
-   
+      transition: all 0.3s;
    }
-   
-   /* Стилі ефекту */
-   
-   .hover:active{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    z-index: 2;
-      background-color: #f37a82;
-      will-change: transform;
-      overflow: hidden;
-   }
-   .hover__text {
+   .menu__link :active {
       color: #fff;
-      padding: 15px 0;
-      display: block;
-      will-change: transform;
    }
+   .menu__item{
+      display: block;
+      transition: all 0.3s;
+   }
+   .menu__item :active {
+background-color: #000;
+   }
+   
    .menu__list {
       flex-direction: column;
       transition: all 0.3s;
