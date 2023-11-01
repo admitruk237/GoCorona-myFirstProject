@@ -248,14 +248,15 @@ body {
    }
    
    /* Стилі ефекту */
-   .hover{
+   
+   .hover:active{
       position: absolute;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 2;
-      background-color: #000;
+    z-index: 2;
+      background-color: #f37a82;
       will-change: transform;
       overflow: hidden;
    }
